@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
     lateinit var startButtonNine:Button
     lateinit var coutdownDisplay:TextView
 
-    var timeToCountDownInMs = 1000L
+    var timeToCountDownInMs = 100L
     val timeTicks = 1000L
 
     override fun onCreate(savedInstanceState: Bundle?) {
