@@ -15,9 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     lateinit var timer:CountDownTimer
     lateinit var startButton:Button
-    lateinit var startButtonThree:Button
-    lateinit var startButtonSix:Button
-    lateinit var startButtonNine:Button
     lateinit var coutdownDisplay:TextView
 
     var timeToCountDownInMs = 1000L
@@ -81,32 +78,6 @@ class MainActivity : AppCompatActivity() {
 
             }
         })
-
-
-        startButtonThree = findViewById<Button>(R.id.startCountdownButtonThree)
-        startButtonThree.setOnClickListener(){
-            timeToCountDownInMs = 1800000
-        }
-        coutdownDisplay = findViewById<TextView>(R.id.countDownView)
-
-        startButtonSix = findViewById<Button>(R.id.startCountdownButtonSix)
-        startButtonSix.setOnClickListener(){
-            timeToCountDownInMs = 3600000
-        }
-        coutdownDisplay = findViewById<TextView>(R.id.countDownView)
-
-        startButtonNine = findViewById<Button>(R.id.startCountdownButtonNine)
-        startButtonNine.setOnClickListener(){
-            timeToCountDownInMs = 5400000
-        }
-        coutdownDisplay = findViewById<TextView>(R.id.countDownView)
-
-        startButton = findViewById<Button>(R.id.startCountdownButtonTwo)
-        startButton.setOnClickListener(){
-            timeToCountDownInMs = 7200000
-        }
-        coutdownDisplay = findViewById<TextView>(R.id.countDownView)
-
 
     }
 
