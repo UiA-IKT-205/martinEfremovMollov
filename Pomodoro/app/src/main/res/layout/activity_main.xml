@@ -25,7 +25,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/countDownView"
         app:layout_constraintVertical_bias="0.406" />
@@ -52,7 +51,7 @@
         android:layout_marginBottom="193dp"
         android:backgroundTint="#3E1E1E"
         android:max="300"
-        android:min="1"
+        android:min="5"
         android:progressTint="#C51111"
         app:layout_constraintBottom_toTopOf="@+id/countDownView"
         app:layout_constraintTop_toTopOf="parent"
@@ -66,10 +65,8 @@
         android:layout_marginTop="63dp"
         android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/countDownView"
-        app:layout_constraintVertical_bias="0.973" />
+        app:layout_constraintTop_toBottomOf="@+id/countDownView" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
