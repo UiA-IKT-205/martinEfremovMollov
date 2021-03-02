@@ -7,7 +7,6 @@ import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import no.uia.ikt205.superpiano.databinding.FragmentHalfTonePianoKeyBinding
-import no.uia.ikt205.superpiano.databinding.FragmentFullTonePianoKeyBinding
 import kotlinx.android.synthetic.main.fragment_full_tone_piano_key.view.*
 import kotlinx.android.synthetic.main.fragment_half_tone_piano_key.view.*
 
