@@ -9,7 +9,7 @@
     <Button
         android:id="@+id/fullToneKey"
         android:layout_width="60dp"
-        android:layout_height="match_parent"
+        android:layout_height="310dp"
         android:backgroundTint="@color/white"
         android:background="@drawable/pianokeyshape"
         app:layout_constraintTop_toTopOf="parent"
