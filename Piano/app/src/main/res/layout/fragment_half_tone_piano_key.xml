@@ -10,7 +10,7 @@
         android:id="@+id/halfToneKey"
         android:layout_width="45dp"
         android:layout_height="220dp"
-        android:layout_margin="0.5dp"
+        android:layout_margin="14dp"
         android:backgroundTint="@color/black"
         android:background="@drawable/pianokeyshape"
         app:layout_constraintTop_toTopOf="parent"
