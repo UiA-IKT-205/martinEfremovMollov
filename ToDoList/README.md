@@ -10,6 +10,36 @@ This app was developed as part of our first project task in IKT205. It is develo
 
 1. When you open the app, it gets the categories from Firestore database and adds them to the scrollview (screen 1)
 - By entering a category name and pressing the "ADD" button, the user adds a new category to the database and list of categories
+Example og the add category function:
+´´´
+private fun addCat(category: String) {
+        val cat = Cat(category)
+        val db = Firebase.firestore
+
+        val ex = hashMapOf(
+            "exists" to 1
+        )
+
+        db.collection("Categories").document(category)
+            .set(ex)
+            .addOnSuccessListener {
+                Log.d(TAG, "Exists ref added with ID: $category")
+                db.collection("Categories").document(category)
+                    .set(cat)
+                    .addOnSuccessListener {
+                        Log.d(TAG, "Cat added with ID: $cat")
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Error adding Cat", e)
+                    }
+            }
+            .addOnFailureListener { e ->
+                Log.w(TAG, "Error adding exists ref", e)
+            }
+
+        CatDepositoryManager.instance.addCat(cat)
+    }
+´´´
 - By pressing the "bin" icon a user deletes the category from the database and category list
 - By pressing on a category the user goes to screen 2 where a detailed view of the tasks in that category is displayed
 
