@@ -73,9 +73,114 @@ private fun onCatClicked(cat: Cat): Unit {
 ```
 
 2. On the second screen there is the list name and a progress bar at the top, followed by the tasks in that category, below. Besides each task there is checkbox which updates task´s "done" field in the database to "true" if it is checked and "false" if it is not checked.
-- Upon entering the second screen all tasks and progress for the particular category is received and added to the task list
+- Upon entering the second screen all tasks and progress for the particular category is received and added to the task list.
+```kotlin
+            // Imports tasks from Firestore
+            // ------------------------------------------------------------------------ //
+            db.collection("Categories")
+                .document(receivedCatFormatted.replace(")", ""))
+                .collection(receivedCatFormatted.replace(")", ""))
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        Log.d(TAG, "${document.id} => ${document.data}")
+                        val dataForm = document.data.toString().replace("{done=", "")
+                        val formattedDone = dataForm.replace("}", "")
+                        println(formattedDone)
+                        var taskFirebase: Tasks
+                        if (formattedDone == "true") {
+                            taskFirebase = Tasks(document.id, isChecked = true)
+                        } else {
+                            taskFirebase = Tasks(document.id, isChecked = false)
+                        }
+
+                        TaskDepositoryManager.instance.addTask(taskFirebase)
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.w(TAG, "Error getting documents: ", exception)
+                }
+```
+In addition it also actively listens for changes in the progrss bar value and updates it:
+```kotlin
+        db.collection("Progress")
+            .document(receivedCatFormatted.replace(")", ""))
+            .addSnapshotListener { snapshot, e ->
+                if (e != null) {
+                    Log.w(TAG, "Listen failed.", e)
+                    return@addSnapshotListener
+                }
+
+                if (snapshot != null && snapshot.exists()) {
+                    Log.d(TAG, "Current data: ${snapshot.data}")
+                    val progress = snapshot.data.toString().replace("{progress=", "")
+                    val formattedProgress = progress.replace("}", "")
+                    binding.progressBarSecond.progress = formattedProgress.toInt()
+                } else {
+                    Log.d(TAG, "Current data: null")
+                }
+            }
+```
 - By entering a task name and pressing the "ADD TASK" button, the user adds a new task to the database and list of tasks
-- By pressing the "DELETE DONE" button the user deletes all tasks from the database and list of tasks, that are checked 
+```kotlin
+        btnAddTodo.setOnClickListener {
+            val todoTitle = etTodoTitle.text.toString()
+
+            if(todoTitle.isNotEmpty()) {
+                var todo = Tasks(todoTitle, false)
+                val receivedBookFormatted = cat.toString().replace("Cat(category=", "")
+                val todoy = hashMapOf(
+
+                    "done" to false
+                )
+
+                db.collection("Categories")
+                    .document(receivedBookFormatted.replace(")", ""))
+                    .collection(receivedBookFormatted.replace(")", ""))
+                    .document(todoTitle)
+                    .set(todoy)
+                    .addOnSuccessListener {
+                        Log.d(TAG, "To-Do task added with ID: $todoTitle")
+                        todo = Tasks(todoTitle, false)
+                    }
+                    .addOnFailureListener { e ->
+                        Log.w(TAG, "Error adding task", e)
+                    }
+
+
+                TaskDepositoryManager.instance.addTask(todo)
+                etTodoTitle.text.clear()
+            }
+        }
+```
+- By pressing the "DELETE DONE" button the user deletes all tasks from the database and list of tasks, that are checked
+```kotlin
+        btnDeleteDoneTodos.setOnClickListener {
+            val receivedBookFormatted = cat.toString().replace("Cat(category=", "")
+
+            TaskDepositoryManager.instance.deleteDoneTasks()
+
+            db.collection("Categories")
+                .document(receivedBookFormatted.replace(")", ""))
+                .collection(receivedBookFormatted.replace(")", ""))
+                .whereEqualTo("done", true)
+                .get()
+                .addOnSuccessListener { documents ->
+                    for (document in documents) {
+                        db.collection("Categories")
+                            .document(receivedBookFormatted.replace(")", ""))
+                            .collection(receivedBookFormatted.replace(")", ""))
+                            .document(document.id)
+                            .delete()
+                            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+                            .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Log.w(TAG, "Error getting documents: ", exception)
+                }
+        }
+```
 
 ## Visuals
 
