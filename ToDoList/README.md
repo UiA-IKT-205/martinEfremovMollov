@@ -128,15 +128,15 @@ In addition it also actively listens for changes in the progrss bar value and up
 
             if(todoTitle.isNotEmpty()) {
                 var todo = Tasks(todoTitle, false)
-                val receivedBookFormatted = cat.toString().replace("Cat(category=", "")
+                val receivedCatFormatted = cat.toString().replace("Cat(category=", "")
                 val todoy = hashMapOf(
 
                     "done" to false
                 )
 
                 db.collection("Categories")
-                    .document(receivedBookFormatted.replace(")", ""))
-                    .collection(receivedBookFormatted.replace(")", ""))
+                    .document(receivedCatFormatted.replace(")", ""))
+                    .collection(receivedCatFormatted.replace(")", ""))
                     .document(todoTitle)
                     .set(todoy)
                     .addOnSuccessListener {
