@@ -10,7 +10,7 @@ This app was developed as part of our first project task in IKT205. It is develo
 
 
 
-## Instalation
+## Installation
 
 To install the app via Firebase App distribution click [HERE]()
 
