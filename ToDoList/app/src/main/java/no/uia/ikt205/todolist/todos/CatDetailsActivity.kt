@@ -42,7 +42,8 @@ class CatDetailsActivity : AppCompatActivity() {
             Log.i("Details view", cat.toString())
 
             receivedCatFormatted = cat.toString().replace("Cat(category=", "")
-            // Imports tasks from Firestore //
+
+            // Imports tasks from Firestore
             // ------------------------------------------------------------------------ //
             db.collection("Categories")
                 .document(receivedCatFormatted.replace(")", ""))
@@ -92,29 +93,29 @@ class CatDetailsActivity : AppCompatActivity() {
                     Log.d(TAG, "Current data: ${snapshot.data}")
                     val progress = snapshot.data.toString().replace("{progress=", "")
                     val formattedProgress = progress.replace("}", "")
-                    binding.progressBarSecond.progress = formattedProgress.toInt()
+                    binding.progressBarSecond.progress = formattedProgress.toInt() // Updates progress bar value
                 } else {
                     Log.d(TAG, "Current data: null")
                 }
             }
         // ------------------------------------------------------------------------ //
 
-        // Adds a task to Firestore
+        // Adds a task to Firestore and list
         // ------------------------------------------------------------------------ //
         btnAddTodo.setOnClickListener {
             val todoTitle = etTodoTitle.text.toString()
 
             if(todoTitle.isNotEmpty()) {
                 var todo = Tasks(todoTitle, false)
-                val receivedBookFormatted = cat.toString().replace("Cat(category=", "")
+                val receivedCatFormatted = cat.toString().replace("Cat(category=", "")
                 val todoy = hashMapOf(
 
                     "done" to false
                 )
 
                 db.collection("Categories")
-                    .document(receivedBookFormatted.replace(")", ""))
-                    .collection(receivedBookFormatted.replace(")", ""))
+                    .document(receivedCatFormatted.replace(")", ""))
+                    .collection(receivedCatFormatted.replace(")", ""))
                     .document(todoTitle)
                     .set(todoy)
                     .addOnSuccessListener {

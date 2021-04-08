@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.bookListing.layoutManager = LinearLayoutManager(this)
-        binding.bookListing.adapter = CatCollectionAdapter(emptyList<Cat>(), this::onBookClicked)
+        binding.bookListing.adapter = CatCollectionAdapter(emptyList<Cat>(), this::onCatClicked)
 
         CatDepositoryManager.instance.onCats = {
             (binding.bookListing.adapter as CatCollectionAdapter).updateCollection(it)
@@ -80,7 +80,7 @@ class MainActivity : AppCompatActivity() {
         CatDepositoryManager.instance.addCat(cat)
     }
 
-    private fun onBookClicked(cat: Cat): Unit {
+    private fun onCatClicked(cat: Cat): Unit {
         CatHolder.PickedCat = cat
 
         val intent =Intent(this, CatDetailsActivity::class.java)
