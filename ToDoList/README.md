@@ -16,7 +16,7 @@ Screen 1:
 
 <img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot_1617882085.png" alt="drawing" width="250"/>
 
-Screen 2
+Screen 2:
 - Displays list name and progress
 - Checkbox for each list item/task (indicates status of that item)
 - Button for deleting done (checked) item/s
