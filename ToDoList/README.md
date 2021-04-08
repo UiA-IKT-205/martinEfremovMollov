@@ -8,7 +8,21 @@ This app was developed as part of our first project task in IKT205. It is develo
 
 ## Visuals
 
+Screen 1:
+- Overview of available lists (categories)
+- User can delete lists (categories)
+- User can create a new list (category)
+- Once the user clicks a list a detailed view is presented
 
+![Image](https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot_1617882085.png)
+
+Screen 2
+- Displays list name and progress
+- Checkbox for each list item/task (indicates status of that item)
+- Button for deleting done (checked) item/s
+- Button for adding item/task
+
+![Image2](https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot_1617882097.png)
 
 ## Installation
 
