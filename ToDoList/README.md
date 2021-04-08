@@ -11,11 +11,11 @@ This app was developed as part of our first project task in IKT205. It is develo
 1. When you open the app, it gets the categories from Firestore database and adds them to the scrollview (screen 1)
 - By entering a category name and pressing the "ADD" button, the user adds a new category to the database and list of categories
 Example og the add category function:
-´´´
+
+´´´kotlin
 private fun addCat(category: String) {
         val cat = Cat(category)
         val db = Firebase.firestore
-
         val ex = hashMapOf(
             "exists" to 1
         )
