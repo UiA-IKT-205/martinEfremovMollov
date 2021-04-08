@@ -9,8 +9,8 @@ This app was developed as part of our first project task in IKT205. It is develo
 ## How It Works
 
 1. When you open the app, it gets the categories from Firestore database and adds them to the scrollview (screen 1)
-- By entering a category name and pressing the "ADD" button, the user adds a new category to the database and list of categories
-Example og the add category function:
+- By entering a category name and pressing the "ADD" button, the user adds a new category to the database and list of categories.
+Example of the add category function:
 
 ```kotlin
 private fun addCat(category: String) {
@@ -40,8 +40,37 @@ private fun addCat(category: String) {
         CatDepositoryManager.instance.addCat(cat)
     }
 ```
-- By pressing the "bin" icon a user deletes the category from the database and category list
+- By pressing the "bin" icon a user deletes the category from the database and category list.
+Example of the delete category function:
+```kotlin
+deleteBt.setOnClickListener {
+                val TAG = "ToDoListTasks"
+
+                val db = Firebase.firestore
+
+                // Deletes category from Firestore //
+                // --------------------------------------------------------------------------------------- //
+                db.collection("Categories")
+                    .document(title.text as String)
+                    .delete()
+                    .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+                    .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+                // --------------------------------------------------------------------------------------- //
+                val remove = Cat(title.text as String)
+                CatDepositoryManager.instance.removeCat(remove)
+            }
+```
 - By pressing on a category the user goes to screen 2 where a detailed view of the tasks in that category is displayed
+Example of the open category details function. The intent is used to start the second activity:
+```kotlin
+private fun onCatClicked(cat: Cat): Unit {
+        CatHolder.PickedCat = cat
+
+        val intent =Intent(this, CatDetailsActivity::class.java)
+
+        startActivity(intent)
+    }
+```
 
 2. On the second screen there is the list name and a progress bar at the top, followed by the tasks in that category, below. Besides each task there is checkbox which updates task´s "done" field in the database to "true" if it is checked and "false" if it is not checked.
 - Upon entering the second screen all tasks and progress for the particular category is received and added to the task list
