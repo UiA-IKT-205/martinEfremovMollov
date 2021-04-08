@@ -12,7 +12,7 @@ This app was developed as part of our first project task in IKT205. It is develo
 - By entering a category name and pressing the "ADD" button, the user adds a new category to the database and list of categories
 Example og the add category function:
 
-´´´kotlin
+```kotlin
 private fun addCat(category: String) {
         val cat = Cat(category)
         val db = Firebase.firestore
@@ -39,7 +39,7 @@ private fun addCat(category: String) {
 
         CatDepositoryManager.instance.addCat(cat)
     }
-´´´
+```
 - By pressing the "bin" icon a user deletes the category from the database and category list
 - By pressing on a category the user goes to screen 2 where a detailed view of the tasks in that category is displayed
 
