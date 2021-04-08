@@ -1,6 +1,6 @@
 ## Name
 
-SuperList (Prosjektoppgave I)
+ToDoList (Prosjektoppgave I)
 
 ## Description
 
@@ -8,7 +8,11 @@ This app was developed as part of our first project task in IKT205. It is develo
 
 ## Visuals
 
+
+
 ## Instalation
+
+To install the app via Firebase App distribution click [HERE]()
 
 ## Author
 
