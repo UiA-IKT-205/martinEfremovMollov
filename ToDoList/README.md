@@ -52,14 +52,13 @@ deleteBt.setOnClickListener {
 
                 val db = Firebase.firestore
 
-                // Deletes category from Firestore //
-                // --------------------------------------------------------------------------------------- //
+                // Deletes category from Firestore
                 db.collection("Categories")
                     .document(title.text as String)
                     .delete()
                     .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
                     .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
-                // --------------------------------------------------------------------------------------- //
+                    
                 val remove = Cat(title.text as String)
                 CatDepositoryManager.instance.removeCat(remove)
             }
@@ -80,7 +79,6 @@ private fun onCatClicked(cat: Cat): Unit {
 - Upon entering the second screen all tasks and progress for the particular category is received and added to the task list.
 ```kotlin
             // Imports tasks from Firestore
-            // ------------------------------------------------------------------------ //
             db.collection("Categories")
                 .document(receivedCatFormatted.replace(")", ""))
                 .collection(receivedCatFormatted.replace(")", ""))
