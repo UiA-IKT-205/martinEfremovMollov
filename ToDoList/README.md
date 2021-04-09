@@ -218,7 +218,7 @@ Screen 2:
 
 ## Installation
 
-To install the app via Firebase App distribution click [HERE]()
+To install the app via Firebase App distribution click [HERE](https://appdistribution.firebase.dev/i/fc50b72941611e2e)
 
 ## Author
 
