@@ -4,7 +4,7 @@ ToDoList (Prosjektoppgave I)
 
 ## Description
 
-This app was developed as part of our first project task in IKT205. It is developed using the programming language Kotlin as well as Firestore as its backend database. It contains two screens (activities) where the first one is an overview of all the categories and the second one is detailed overview of all tasks that are in a particular category.
+This app was developed as part of our first project task in IKT205. It is developed using the programming language Kotlin and it uses Firestore as its backend database. It contains two screens (activities) where the first one is an overview of all the categories and the second one is detailed overview of all tasks that are in a particular category.
 
 ## How It Works
 
