@@ -192,11 +192,11 @@ UI for adding a task to category:
 
 There are two collections called "Categories", where all categories and tasks are store and "Progress", where the progress for each category is stored.
 
-<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-08%20at%2014.16.49.png" alt="drawing" width="250"/>
+<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-08%20at%2014.16.49.png" alt="drawing" width="600"/>
 
-<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-08%20at%2014.16.19.png" alt="drawing" width="250"/>
+<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-08%20at%2014.16.19.png" alt="drawing" width="600"/>
 
-<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-08%20at%2014.17.08.png" alt="drawing" width="250"/>
+<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-08%20at%2014.17.08.png" alt="drawing" width="600"/>
 
 ## Visuals
 
