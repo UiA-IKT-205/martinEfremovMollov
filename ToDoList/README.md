@@ -190,7 +190,7 @@ UI for adding a task to category:
 
 3. Firestore database structure
 
-There are two collections called "Categories", where all categories and tasks are store and "Progress", where the progress for each category is stored.
+- There are two collections called "Categories", where all categories and tasks are store and "Progress", where the progress for each category is stored.
 
 <img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-08%20at%2014.16.49.png" alt="drawing" width="750"/>
 
