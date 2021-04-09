@@ -41,6 +41,7 @@ private fun addCat(category: String) {
     }
 ```
 UI for adding a category:
+
 <img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-09%20at%2012.10.41.png" alt="drawing" width="250"/>
 
 - By pressing the "bin" icon a user deletes the category from the database and category list.
@@ -156,6 +157,10 @@ In addition it also actively listens for changes in the progrss bar value and up
             }
         }
 ```
+UI for adding a task to category:
+
+<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-09%20at%2012.11.08.png" alt="drawing" width="250"/>
+
 - By pressing the "DELETE DONE" button the user deletes all tasks from the database and list of tasks, that are checked
 ```kotlin
         btnDeleteDoneTodos.setOnClickListener {
