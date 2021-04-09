@@ -4,11 +4,11 @@ ToDoList (Prosjektoppgave I)
 
 ## Description
 
-This app was developed as part of our first project task in IKT205. It is developed using the programming language Kotlin as well as Firestore as its backend database. It contains two screens (activities) where the first one is an overview of all the categories and the second one is detailed overview of all tasks that are in a particular category.
+This app was developed as part of our first project task in IKT205. It is developed using the programming language Kotlin and it uses Firestore as its backend database. It has two screens (activities) where the first one is an overview of all the categories and the second one is detailed overview of all tasks that are in a particular category.
 
 ## How It Works
 
-1. When you open the app, it gets the categories from Firestore database and adds them to the scrollview (screen 1)
+1. When you open the app, it gets the categories from Firestore database and adds them to a list called "Cat", which is short for category (screen 1)
 - By entering a category name and pressing the "ADD" button, the user adds a new category to the database and list of categories.
 Example of the add category function:
 
