@@ -152,7 +152,25 @@ class CatDetailsActivity : AppCompatActivity() {
                             .collection(receivedBookFormatted.replace(")", ""))
                             .document(document.id)
                             .delete()
-                            .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+                            .addOnSuccessListener {
+                                Log.d(TAG, "DocumentSnapshot successfully deleted!")
+
+                                // Returns progress bar to 0
+                                val doc = hashMapOf(
+                                    "progress" to 0
+                                )
+
+                                db.collection("Progress")
+                                    .document(receivedCatFormatted.replace(")", ""))
+                                    .set(doc)
+                                    .addOnSuccessListener {
+                                        Log.d(TAG, "Changed progress")
+                                    }
+                                    .addOnFailureListener {
+                                        Log.w(TAG, "Failed to change progress!")
+                                    }
+
+                            }
                             .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
                     }
                 }
