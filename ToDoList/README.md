@@ -206,7 +206,7 @@ Screen 1:
 - User can create a new list (category)
 - Once the user clicks a list, a detailed view is presented
 
-<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot_1617882085.png" alt="drawing" width="250"/>
+<img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot_1618223369.png" alt="drawing" width="250"/>
 
 Screen 2:
 - Displays list name and progress bar
