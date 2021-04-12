@@ -18,10 +18,11 @@ class MainActivity : AppCompatActivity() {
     lateinit var coutdownDisplay:TextView
 
     var timeToCountDownInMs = 1000L
-
     var pauseToCountDownInMs = 1000L
     val timeTicks = 1000L
     var currentMS: Long = 0
+    var b = 0
+    var c = true
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,11 +32,11 @@ class MainActivity : AppCompatActivity() {
         startButton = findViewById<Button>(R.id.startCountdownButton)
         startButton.setOnClickListener(){
 
-            startCountDown(it)
+            startCountDown()
+            var c = true
 
         }
         coutdownDisplay = findViewById<TextView>(R.id.countDownView)
-
 
         // Endring 1:
         val seek = findViewById<SeekBar>(R.id.seekBarSetTime)
@@ -79,9 +80,10 @@ class MainActivity : AppCompatActivity() {
             }
         })
 
+
     }
 
-    fun startCountDown(v: View){
+    fun startCountDown(){
         timer = object : CountDownTimer(timeToCountDownInMs,timeTicks) {
             override fun onFinish() {
                 Toast.makeText(this@MainActivity,"Arbeidsøkt er ferdig", Toast.LENGTH_SHORT).show()
@@ -99,31 +101,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun pauseCountDown(){
-
         var a = findViewById<TextView>(R.id.text).text.toString().toIntOrNull()
-
+        if (c == true) {
+            if (a != null) {
+                b = a
+            }
+            c = false
+        }
         timer = object : CountDownTimer(pauseToCountDownInMs,timeTicks) {
+
             override fun onFinish() {
                 Toast.makeText(this@MainActivity,"Pausetid er ferdig", Toast.LENGTH_SHORT).show()
-                Toast.makeText(this@MainActivity,"Repetisjoner igjen: $a", Toast.LENGTH_SHORT).show()
 
-                when (a) {
-                    null -> Toast.makeText(this@MainActivity,"Finished!!", Toast.LENGTH_SHORT).show()
-                    0 -> Toast.makeText(this@MainActivity,"Finished!!", Toast.LENGTH_SHORT).show()
+                when (b) {
+                    null, 0 -> Toast.makeText(this@MainActivity,"Finished!!", Toast.LENGTH_SHORT).show()
+                    //0 -> Toast.makeText(this@MainActivity,"Finished!!", Toast.LENGTH_SHORT).show()
                     else -> {
-                        timer.start()
-                        a--
+                        b--
+                        Toast.makeText(this@MainActivity,"Repetisjoner igjen: $b", Toast.LENGTH_SHORT).show()
+                        startCountDown()
                     }
                 }
 
             }
 
             override fun onTick(millisUntilFinished: Long) {
-
                 currentMS = millisUntilFinished
-                updateCountDownDisplay(millisUntilFinished)
-
-
                 updateCountDownDisplay(millisUntilFinished)
 
             }
@@ -135,5 +138,4 @@ class MainActivity : AppCompatActivity() {
     fun updateCountDownDisplay(timeInMs:Long){
         coutdownDisplay.text = millisecondsToDescriptiveTime(timeInMs)
     }
-
 }
