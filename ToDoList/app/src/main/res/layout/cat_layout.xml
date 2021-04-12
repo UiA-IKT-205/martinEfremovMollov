@@ -22,6 +22,7 @@
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             tools:text="Bok titel" />
 
@@ -36,14 +37,15 @@
             android:progressTint="#009688"
             app:layout_constraintBottom_toTopOf="@+id/rvTodoItems" />
 
-        <ImageView
+        <Button
             android:id="@+id/deleteBt"
-            android:layout_width="20dp"
-            android:layout_height="25dp"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:backgroundTint="@color/white"
             android:gravity="center"
-            android:scaleType="fitXY"
-            android:src="@drawable/delete"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:text="@string/delete"
+            android:textColor="@color/black"
+            app:cornerRadius="20dp" />
 
     </LinearLayout>
 
