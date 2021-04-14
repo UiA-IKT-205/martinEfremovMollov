@@ -60,7 +60,6 @@ class TasksCollectionAdapter(private var tasks:List<Tasks>) : RecyclerView.Adapt
                     .get()
                     .addOnSuccessListener { documents ->
                         for (document in documents) {
-                            // Log.d(TAG, "${document.id} => ${document.data}")
                             countTrue++
                         }
                         totalTasks = tasks.size

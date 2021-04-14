@@ -58,12 +58,56 @@ class CatCollectionAdapter(private var cats:List<Cat>, private val onCatClicked:
 
                 val db = Firebase.firestore
 
-                // Deletes category from Firestore //
+                val doc = hashMapOf(
+                    "progress" to 0
+                )
+
+                // Deletes category from Firestore
+                // 1. Retrieves all documents and deletes them
+                // 2. Deletes the collection
+                // 3. Sets progress to 0
+                // 4. Deletes category progress from Progress collection
                 // --------------------------------------------------------------------------------------- //
                 db.collection("Categories")
                     .document(title.text as String)
-                    .delete()
-                    .addOnSuccessListener { Log.d(TAG, "DocumentSnapshot successfully deleted!") }
+                    .collection(title.text as String)
+                    .get()
+                    .addOnSuccessListener { documents ->
+                        for (document in documents) {
+                            db.collection("Categories")
+                                .document(title.text as String)
+                                .collection(title.text as String)
+                                .document(document.id)
+                                .delete()
+                                .addOnSuccessListener {
+                                    db.collection("Categories")
+                                        .document(title.text as String)
+                                        .delete()
+                                        .addOnSuccessListener {
+                                            db.collection("Progress")
+                                                .document(title.text as String)
+                                                .set(doc)
+                                                .addOnSuccessListener {
+                                                    db.collection("Progress")
+                                                        .document(title.text as String)
+                                                        .delete()
+                                                        .addOnSuccessListener { Log.d(TAG, "Category progress deleted!") }
+                                                        .addOnFailureListener { e -> Log.w(TAG, "Error deleting category progress", e) }
+
+                                                    Log.d(TAG, "Category progress deleted!")
+                                                }
+                                                .addOnFailureListener { e -> Log.w(TAG, "Error deleting category progress", e) }
+
+                                            Log.d(TAG, "DocumentSnapshot successfully deleted! (cat)")
+                                        }
+                                        .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+
+                                    Log.d(TAG, "DocumentSnapshot successfully deleted! (doc)") }
+                                .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
+                        }
+
+                        Log.d(TAG, "DocumentSnapshot successfully deleted!")
+                    }
                     .addOnFailureListener { e -> Log.w(TAG, "Error deleting document", e) }
                 // --------------------------------------------------------------------------------------- //
                 val remove = Cat(title.text as String)
