@@ -44,7 +44,7 @@ UI for adding a category:
 
 <img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-09%20at%2012.10.41.png" alt="drawing" width="250"/>
 
-- By pressing the "bin" icon a user deletes the category from the database and category list.
+- By pressing the "Delete" button a user deletes the category from the database and category list.
 Example of the delete category function:
 ```kotlin
 deleteBt.setOnClickListener {
