@@ -64,6 +64,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:inputType="text"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:backgroundTint="@color/white"
             android:hint="Enter category"/>
 
         <Button

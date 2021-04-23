@@ -68,13 +68,13 @@ class CatCollectionAdapter(private var cats:List<Cat>, private val onCatClicked:
                 // 3. Sets progress to 0
                 // 4. Deletes category progress from Progress collection
                 // --------------------------------------------------------------------------------------- //
-                db.collection("Categories")
+                db.collection("Categories")                 // Retrieves all documents and deletes them
                     .document(title.text as String)
                     .collection(title.text as String)
                     .get()
                     .addOnSuccessListener { documents ->
                         for (document in documents) {
-                            db.collection("Categories")
+                            db.collection("Categories")     // Deletes the collection
                                 .document(title.text as String)
                                 .collection(title.text as String)
                                 .document(document.id)
@@ -84,11 +84,11 @@ class CatCollectionAdapter(private var cats:List<Cat>, private val onCatClicked:
                                         .document(title.text as String)
                                         .delete()
                                         .addOnSuccessListener {
-                                            db.collection("Progress")
+                                            db.collection("Progress")       // Sets progress to 0
                                                 .document(title.text as String)
                                                 .set(doc)
                                                 .addOnSuccessListener {
-                                                    db.collection("Progress")
+                                                    db.collection("Progress")   // Deletes category progress from Progress collection
                                                         .document(title.text as String)
                                                         .delete()
                                                         .addOnSuccessListener { Log.d(TAG, "Category progress deleted!") }
