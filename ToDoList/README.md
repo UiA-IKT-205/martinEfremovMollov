@@ -44,7 +44,7 @@ UI for adding a category:
 
 <img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-09%20at%2012.10.41.png" alt="drawing" width="250"/>
 
-- By pressing the "bin" icon a user deletes the category from the database and category list.
+- By pressing the "Delete" button a user deletes the category from the database and category list.
 Example of the delete category function:
 ```kotlin
 deleteBt.setOnClickListener {
@@ -103,7 +103,7 @@ private fun onCatClicked(cat: Cat): Unit {
                     Log.w(TAG, "Error getting documents: ", exception)
                 }
 ```
-In addition it also actively listens for changes in the progrss bar value and updates it:
+In addition it also actively listens for changes in the progress bar value and updates it:
 ```kotlin
         db.collection("Progress")
             .document(receivedCatFormatted.replace(")", ""))
@@ -190,7 +190,7 @@ UI for adding a task to category:
 
 3. Firestore database structure
 
-- There are two collections called "Categories", where all categories and tasks are store and "Progress", where the progress for each category is stored.
+- There are two collections called "Categories", where all categories and tasks are stored and "Progress", where the progress for each category is stored.
 
 <img src="https://github.com/UiA-IKT-205/martinEfremovMollov/blob/main/ToDoList/examples/Screenshot%202021-04-08%20at%2014.16.49.png" alt="drawing" width="750"/>
 
