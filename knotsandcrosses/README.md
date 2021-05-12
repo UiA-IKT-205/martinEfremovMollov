@@ -40,4 +40,4 @@ Martin Efremov Mollov
 
 ## Project status
 
-
+Fully functional.
