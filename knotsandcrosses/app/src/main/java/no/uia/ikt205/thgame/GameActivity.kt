@@ -55,7 +55,6 @@ class GameActivity : AppCompatActivity() {
                             loadState(it.state)
                         }
                         buttonInitializer(game)
-                        println(getString(R.string.yourMove))
                         turn = true
                         game?.let {
                             checkWin(it.state)
