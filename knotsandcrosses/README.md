@@ -29,11 +29,6 @@ Screen 3:
 
 <img src="https://github.com/martinem-uia/fun/blob/main/Screenshot%202021-05-12%20at%2012.32.52.png" alt="drawing" width="400"/> <img src="https://github.com/martinem-uia/fun/blob/main/Screenshot%202021-05-12%20at%2013.35.57.png" alt="drawing" width="400"/> <img src="https://github.com/martinem-uia/fun/blob/main/Screenshot%202021-05-12%20at%2013.37.01.png" alt="drawing" width="400"/>
 
-
-## Installation
-
-
-
 ## Author
 
 Martin Efremov Mollov
